@@ -23,6 +23,7 @@ class Person:
     def from_birth_year(cls, name, birth_year):
         age = datetime.now().year - birth_year
         return cls(name, age)
+
     @staticmethod
     def is_adult(age) -> bool:
         return True if age >  18 else False
