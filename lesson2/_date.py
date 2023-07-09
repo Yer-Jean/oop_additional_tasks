@@ -52,6 +52,7 @@ class Date(object):
         except ValueError:
             return False
 
+
 date = Date.from_string('23-09-2022')
 print(date)
 print(date.day)

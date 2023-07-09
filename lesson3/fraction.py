@@ -10,8 +10,31 @@
 
 
 class Fraction:
-    pass
+    def __init__(self, numerator, denominator):
+        self.numerator = numerator
+        self.denominator = denominator
 
+    def __str__(self):
+        return f'{self.numerator}/{self.denominator}'
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}({self.numerator}, {self.denominator})'
+
+    def __add__(self, other):  # Суммирование дробей
+        common = self.gcd(self.denominator, other.denominator)
+        newnum = self.numerator * other.denominator + self.denominator * other.numerator
+        newden = self.denominator * other.denominator
+        return Fraction(newnum // common, newden // common)
+
+    @staticmethod
+    def gcd(m, n):  # вычисляем наименьший общий делитель
+        while m % n != 0:
+            oldm = m
+            oldn = n
+
+            m = oldn
+            n = oldm % oldn
+        return n
 
 fraction1 = Fraction(1, 2)
 print(repr(fraction1))  # Fraction(1, 2)
