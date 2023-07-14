@@ -17,8 +17,30 @@
 
 
 class Shape:
-    pass
+    def __init__(self, name):
+        self.name = name
 
+    def area(self):
+        return 0
+
+
+class Rectangle(Shape):
+    def __init__(self, name, width, height):
+        super().__init__(name)
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Triangle(Shape):
+    def __init__(self, name, base, height):
+        super().__init__(name)
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return self.base * self.height / 2
 
 shape = Shape("Shape")
 print(shape.area())  # 0
