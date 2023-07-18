@@ -14,13 +14,21 @@
 
 
 class Person2:
-    pass
+    __slots__ = ('name', 'age')
+
+
+class Employee2(Person2):
+    __slots__ = 'salary'
+
+
+class Manager2(Employee2):
+    __slots__ = ('bonus', 'department')
 
 
 person = Person2()
 person.name = "John"
 person.age = 30
-person.salary = 5000  # raises AttributeError
+# person.salary = 5000  # raises AttributeError
 
 employee = Employee2()
 employee.name = "Jane"

@@ -10,7 +10,18 @@
 
 
 class Student:
-    pass
+    __slots__ = ('name', 'age', 'grades')
+
+    def __str__(self):
+        return f'{self.name}'
+
+class Course:
+    __slots__ = ('name', 'students')
+
+    def __str__(self):
+        students_list = ' '.join(self.students[i].name for i in range(len(self.students)))
+        return f'{self.name} - {students_list}'
+
 
 
 student1 = Student()
@@ -26,3 +37,5 @@ student2.grades = [95, 85, 90]
 course = Course()
 course.name = "Math"
 course.students = [student1, student2]
+print(student1)
+print(course)
